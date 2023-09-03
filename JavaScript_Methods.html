@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .highlightedText {
+                color: blue;
+            }
+            .highlightedText2 {
+                color: purple;
+            }
+            .highlightedText3 {
+                color: red;
+            }
+            .highlightedText4 {
+                color: maroon;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>String Methods</h1>
+
+        <p>Inputted text:</p>
+        <p class="highlightedText">Hey you, you're finally awake</p>
+
+        <p>Outputted length from string length method:</p>
+        <p id="lengthDemo" class="highlightedText"></p>
+
+        <p>Outputted slice from characters 3 to 14 using the slice() method:</p>
+        <p id="sliceDemo" class="highlightedText"></p>
+
+        <p>Outputted index of the "a" in "finally" using the indexOf() method:</p>
+        <p id="indexOfDemo" class="highlightedText"></p>
+
+        <p>Outputted replacement text using the replace() method:</p>
+        <p id="replaceDemo" class="highlightedText"></p>
+
+        <p>Lowercase version of inputted text using the toLowerCase() method:</p>
+        <p id="toLowerDemo" class="highlightedText"></p>
+
+        <script>
+            let inputText = "Hey you, you're finally awake";
+
+            let length = inputText.length + " characters";
+            document.getElementById("lengthDemo").innerHTML = length;
+
+            let slice = inputText.slice(3,14);
+            document.getElementById("sliceDemo").innerHTML = slice;
+
+            let result = inputText.indexOf("a");
+            document.getElementById("indexOfDemo").innerHTML = result;
+
+            let replacedText = inputText.replace("Hey you, you're finally awake", "You were trying to cross the border, weren't you?");
+            document.getElementById("replaceDemo").innerHTML = replacedText;
+
+            let lowercaseText = inputText.toLowerCase();
+            document.getElementById("toLowerDemo").innerHTML = lowercaseText;
+        </script>
+
+        <br>
+
+        <h1>Array Methods</h1>
+        <p>Inputted Array:</p>
+        <p class="highlightedText2">["apple", 12, "steve", "alien", 29, 42, "green"]</p>
+
+        <p>Array length using length method:</p>
+        <p id="arrLengthDemo" class="highlightedText2"></p>
+
+        <p>New array after adding an element to using the push() method:</p>
+        <p id="arrPushDemo" class="highlightedText2"></p>
+
+        <p>Element removed from an array using the pop() method:</p>
+        <p id="arrPopDemo" class="highlightedText2"></p>
+
+        <p>Shift elements in an array using the shift() method:</p>
+        <p id="arrShiftDemo" class="highlightedText2"></p>
+
+        <p>Unshift elements in an array using the unshift() method:</p>
+        <p id="arrUnshiftDemo" class="highlightedText2"></p>
+
+
+        <script>
+            function printArrayContents(array) {
+                let arrayElements = "[";
+                
+                for (let i = 0; i < array.length; i++) {
+                    if (i != array.length - 1) {
+                        arrayElements = arrayElements + array[i] + ", ";
+                    }
+                    
+                    else {
+                        arrayElements = arrayElements + array[i] + "]"
+                    }
+
+                }
+
+                return arrayElements;
+            }
+            
+            function copyArray(array) {
+                const arrayCopy = [];
+
+                for (i = 0; i < array.length; i++) {
+                    arrayCopy[i] = array[i];
+                }
+
+                return arrayCopy;
+            }
+            
+            const inputArray = ["apple", 12, "steve", "alien", 29, 42, "green"];
+
+            let arrayLength = inputArray.length;
+            document.getElementById("arrLengthDemo").innerHTML = arrayLength;
+
+            const newArray = copyArray(inputArray);
+            newArray.push("creek")
+            document.getElementById("arrPushDemo").innerHTML = printArrayContents(newArray);
+
+            const newArray2 = copyArray(inputArray);
+            let removedElement = newArray2.pop();
+            document.getElementById("arrPopDemo").innerHTML = removedElement;
+
+            const newArray3 = copyArray(inputArray);
+            newArray3.shift();
+            document.getElementById("arrShiftDemo").innerHTML = printArrayContents(newArray3);
+
+            const newArray4 = copyArray(inputArray);
+            newArray4.unshift("Pebble");
+            document.getElementById("arrUnshiftDemo").innerHTML = printArrayContents(newArray4);
+        </script>
+
+        <h1>Number Methods</h1>
+        <p>Inputted Number:</p>
+        <p class="highlightedText3">5</p>
+
+        <p>A number converted to exponential notation (in a string) using the toExponential() method:</p>
+        <p id="toExpoDemo" class="highlightedText3"></p>
+
+        <p>Returning a string of a number with a fixed number of decimal places using the toFixed() method:</p>
+        <p id="toFixDemo" class="highlightedText3"></p>
+
+        <p>The value of the number returned by using the valueOf() method:</p>
+        <p id="valueOfDemo" class="highlightedText3"></p>
+
+        <p>A string of specified length of 6 returned by the toPrecision() method:</p>
+        <p id="toPrecDemo" class="highlightedText3"></p>
+
+        <p>A number returned as a string using the toString() method:</p>
+        <p id="toStringDemo" class="highlightedText3"></p>
+
+        <script>
+            let inputtedNo = 5;
+
+            let noAsExpo = inputtedNo.toExponential();
+            document.getElementById("toExpoDemo").innerHTML = noAsExpo;
+
+            let fixedNo = inputtedNo.toFixed(4);
+            document.getElementById("toFixDemo").innerHTML = fixedNo;
+
+            let valueOfNo = inputtedNo.valueOf();
+            document.getElementById("valueOfDemo").innerHTML = valueOfNo;
+
+            let preciseNo = inputtedNo.toPrecision(6);
+            document.getElementById("toPrecDemo").innerHTML = preciseNo;
+
+            let noAsString = inputtedNo.toString();
+            document.getElementById("toStringDemo").innerHTML = noAsString;
+        </script>
+
+        <h1>Date Methods</h1>
+
+        <p>Date obtained from inputting "September 29, 2021 12:34:00" into new date() method:</p>
+        <p id="date1Demo" class="highlightedText4"></p>
+
+        <p>Date obtained from inputting "2019-06-30" into new date() method:</p>
+        <p id="date2Demo" class="highlightedText4"></p>
+
+        <p>Date obtained from inputting "2017, 10, 23, 14, 43, 0, 0" into new date() method:</p>
+        <p id="date3Demo" class="highlightedText4"></p>
+
+        <p>Date obtained from inputting "2004, 16, 19, 12, 24, 30, 0" into new date() method:</p>
+        <p id="date4Demo" class="highlightedText4"></p>
+
+        <p>Date obtained from inputting "2013, 11, 14, 11, 61" into new date() method:</p>
+        <p id="date5Demo" class="highlightedText4"></p>
+
+        <script>
+            const date1 = new Date("September 29, 2021 12:34:00");
+            document.getElementById("date1Demo").innerHTML = date1;
+
+            const date2 = new Date("2019-06-30");
+            document.getElementById("date2Demo").innerHTML = date2;
+
+            const date3 = new Date(2017, 10, 23, 14, 43, 0, 0);
+            document.getElementById("date3Demo").innerHTML = date3;
+
+            const date4 = new Date(2004, 16, 19, 12, 24, 30, 0);
+            document.getElementById("date4Demo").innerHTML = date4;
+
+            const date5 = new Date(2013, 11, 14, 11, 61);
+            document.getElementById("date5Demo").innerHTML = date5;
+        </script>
+    </body>
+</html>
